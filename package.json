@@ -1,7 +1,12 @@
 {
-    "name": "Vue-Cli3-cleanEmptyProject",
+    "name": "vue-power-popup",
+    "author":  "skillnull",
     "version": "0.1.0",
-    "private": true,
+    "description": "vue popup plugin",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/skillnull/Vue-power-popup.git"
+    },
     "scripts": {
         "serve": "vue-cli-service serve",
         "build-dev": "vue-cli-service build --mode development",
@@ -51,6 +56,7 @@
             "autoprefixer": {}
         }
     },
+    "license": "MIT",
     "browserslist": [
         "> 1%",
         "last 2 versions",

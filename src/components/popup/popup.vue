@@ -1,8 +1,8 @@
 <template>
-    <div class="popupBox" v-if="popFlag">
-        <div class="popupContent" :style="reciveData.wrapStyle">
+    <div class="popup-box" v-if="popFlag">
+        <div class="popup-content" :style="reciveData.wrapStyle">
             <div class="title" v-if="reciveData.title === '' || reciveData.title || closeBtn" :style="reciveData.headerStyle">
-                <span class="titleText" v-if="reciveData.title">
+                <span class="title-text" v-if="reciveData.title">
                     <template v-if="reciveData.titleType === 'render'">
                         <RenderComponents :render="reciveRender" :dataDelive="reciveData.title"></RenderComponents>
                     </template>
@@ -33,7 +33,7 @@
                 </div>
                 <!-- END 文本内容 -->
             </template>
-            <div class="bottomBtn" v-if="reciveData.buttonFlag" :style="reciveData.bottomStyle">
+            <div class="bottom-btn" v-if="reciveData.buttonFlag" :style="reciveData.bottomStyle">
                 <ul>
                     <li :key="index" v-for="(item,index) in reciveData.buttonArr ? reciveData.buttonArr : ''">
                         <button :class="item.type ? item.type : 'btnDefault'" @click="btnFun(item.btnFunction)" :Style="item.btnStyle">
@@ -123,7 +123,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-    .popupBox {
+    .popup-box {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -137,7 +137,7 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: rgba(0, 0, 0, .6);
-        .popupContent {
+        .popup-content {
             position: relative;
             background-color: white;
             border-radius: 6px;
@@ -152,7 +152,7 @@ export default {
                 flex: 1;
                 font-size: 16px;
                 padding: 5px 0;
-                .titleText {
+                .title-text {
                     padding: 0 15px;
                     display: flex;
                     flex: 3;
@@ -188,7 +188,7 @@ export default {
                 line-height: 1.5;
                 font-size: 14px;
             }
-            .bottomBtn {
+            .bottom-btn {
                 border-top: 1px solid #e9eaec;
                 padding: 15px;
                 ul {
