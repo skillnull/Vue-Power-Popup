@@ -3,7 +3,7 @@
     <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="License"></a>
 </p>
 
-```
+```javascript
 // 打开弹窗
 this.$popup({
      wrapStyle: 'min-height: 400px', // 弹窗最外层样式, 非必传
