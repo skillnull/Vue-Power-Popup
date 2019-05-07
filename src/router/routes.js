@@ -6,29 +6,24 @@
  * 代码的打包分离，具体解释看如下链接：
  * https://www.cnblogs.com/Man-Dream-Necessary/p/9543738.html
  */
-const notFound = () => import(/* webpackChunkName: "common" */ '@/views/common/404') // 未知页 404
-const homePage = () => import(/* webpackChunkName: "common" */ '@/views/homePage')
 
-/*
- * 注意：默认子路由不应该有name属性
- */
 const routes = [
     {
         path: '/',
-        component: homePage,
+        component: () => import(/* webpackChunkName: "index" */ '@/views/index'),
         redirect: '/homePage',
         children: [
             {
                 path: 'homePage',
                 name: 'homePage',
-                component: homePage
+                component: () => import(/* webpackChunkName: "index" */ '@/views/homePage/homePage')
             }
         ]
     },
     {
         path: '*',
         name: 'notFound',
-        component: notFound,
+        component: () => import(/* webpackChunkName: "common" */ '@/views/common/404'),
         meta: {
             title: '404'
         }

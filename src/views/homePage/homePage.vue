@@ -1,10 +1,9 @@
 <template>
-    <div class="flex-center">
-        <button @click="openPopup">home</button>
+    <div class="flex-center home-page-box">
+        <button @click="openPopup">click</button>
     </div>
 </template>
 <script>
-
 export default {
     data () {
         return {}
@@ -44,3 +43,19 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    .home-page-box {
+        height: 100vh;
+
+        button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: green;
+            outline: none;
+            color: #fff;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+    }
+</style>

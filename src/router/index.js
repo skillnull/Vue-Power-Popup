@@ -17,7 +17,7 @@ const router = new VueRouter({routes})
  * 注意：确保要调用next方法，否则钩子就不会被resolved。
  */
 router.beforeEach((to, from, next) => {
-    document.title = to.meta.title || 'Vue-power-popup' // 更新页面标题
+    document.title = to.meta.title || 'vue-power-popup' // 更新页面标题
     // 此处可验证登陆有效性
     next(true)
 })
