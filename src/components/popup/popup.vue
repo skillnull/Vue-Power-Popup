@@ -70,7 +70,7 @@ export default {
     },
     computed: {
         dynamicComponent () { // 动态组件
-            // return () => import(`@/${this.reciveData.content}`)
+            return () => import(`@/${this.reciveData.content}`)
         },
         reciveRender () { // 函数式组件
             let render = (h, ctx) => {
@@ -137,6 +137,7 @@ export default {
         justify-content: center;
         align-items: center;
         background-color: rgba(0, 0, 0, .6);
+
         .popup-content {
             position: relative;
             background-color: white;
@@ -145,6 +146,7 @@ export default {
             max-height: 95%;
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0, 0, 0, .6);
+
             .title {
                 border-bottom: 1px solid #e9eaec;
                 text-align: center;
@@ -152,6 +154,7 @@ export default {
                 flex: 1;
                 font-size: 16px;
                 padding: 5px 0;
+
                 .title-text {
                     padding: 0 15px;
                     display: flex;
@@ -160,12 +163,14 @@ export default {
                     align-items: center;
                     font-weight: bold;
                 }
+
                 .close {
                     display: flex;
                     flex: 1;
                     justify-content: flex-end;
                     align-items: flex-start;
                     margin-top: -10px;
+
                     span {
                         cursor: pointer;
                         font-size: 14px;
@@ -178,19 +183,23 @@ export default {
                         display: flex;
                         justify-content: center;
                         align-items: center;
+
                         &:hover {
                             color: #CF6B57;
                         }
                     }
                 }
             }
+
             .content {
                 line-height: 1.5;
                 font-size: 14px;
             }
+
             .bottom-btn {
                 border-top: 1px solid #e9eaec;
                 padding: 15px;
+
                 ul {
                     display: flex;
                     flex: 1;
@@ -198,9 +207,11 @@ export default {
                     align-items: center;
                     margin: 0;
                     padding: 0;
+
                     li {
                         display: flex;
                         padding: 0 5px;
+
                         .btnDefault {
                             background-color: transparent;
                             border: solid 1px #D9D9D7;
@@ -211,11 +222,13 @@ export default {
                             cursor: pointer;
                             outline: none;
                             transition: all .5s ease-in-out;
+
                             &:hover {
                                 color: darken(#D9D9D7, 10%);
                                 border: solid 1px darken(#D9D9D7, 10%);
                                 background-color: transparent;
                             }
+
                             &:focus, &:active {
                                 border: solid 1px darken(#D9D9D7, 20%);
                                 color: darken(#D9D9D7, 20%);
@@ -223,12 +236,14 @@ export default {
                                 outline: none;
                                 box-shadow: none;
                             }
+
                             &[disabled], &[disabled]:hover {
                                 border: solid 1px #C9C9CA;
                                 background: #C9C9CA;
                                 color: #acacac;
                             }
                         }
+
                         .btnPrimary {
                             border: solid 1px rgb(220, 100, 80);
                             background: linear-gradient(0deg, rgb(178, 18, 18) 1%, rgb(199, 59, 49) 46%, rgb(220, 100, 80) 100%);
@@ -238,16 +253,19 @@ export default {
                             color: white;
                             cursor: pointer;
                             outline: none;
+
                             &:hover {
                                 border: solid 1px rgb(220, 100, 80);
                                 background: linear-gradient(0deg, #D47B68 0%, #C1564A 46%, #B0312A 100%);
                             }
+
                             &:focus, &:active {
                                 border: solid 1px rgb(166, 44, 44);
                                 background: linear-gradient(0deg, #BD614F, #AB4237 46%, #98241D 100%);
                                 box-shadow: inset 0px 0px 3.66px 2.34px rgba(55, 1, 1, 0.08);
                                 outline: none;
                             }
+
                             &[disabled], &[disabled]:hover {
                                 border: solid 1px #C6C6C6;
                                 background: #C6C6C6;

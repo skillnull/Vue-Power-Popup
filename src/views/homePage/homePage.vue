@@ -1,6 +1,8 @@
 <template>
     <div class="flex-center home-page-box">
-        <button @click="openPopup">click</button>
+        <button @click="openPopup('text')">传递文本</button>
+        <button @click="openPopup('render')">传递函数式组件</button>
+        <button @click="openPopup('component')">传递组件</button>
     </div>
 </template>
 <script>
@@ -9,15 +11,44 @@ export default {
         return {}
     },
     methods: {
-        openPopup () {
+        openPopup (type) {
+            let content = ''
+            let contentType = ''
+            switch (type) {
+                case 'text':
+                    content = `content='文本内容' contentType=''`
+                    contentType = ''
+                    break
+                case 'render':
+                    content = {
+                        render: (h) => {
+                            return h('div', [
+                                h('div', ` content = {
+                                    render: (h) => {
+                                        return h('div', [
+                                            '函数渲染'
+                                        ])
+                                    }
+                                }`),
+                                h('div', `contentType = 'render'`)
+                            ])
+                        }
+                    }
+                    contentType = 'render'
+                    break
+                case 'component':
+                    content = 'views/homePage/testComponent.vue'
+                    contentType = 'component'
+                    break
+            }
             this.$popup({
                 wrapStyle: 'min-height: 400px', // 弹窗最外层样式, 非必传
                 closeBtn: true, // 是否显示关闭按钮, 默认显示, 为false或非布尔类型的值则不显示
                 titleType: '', // 值为render表示是函数式组件, 不传或值为其他则为文本
                 title: '标题', // 不传这个属性则不显示标题, 支持空字符串
                 headerStyle: 'padding: 5px; font-size: 14px; border: none;height:40px;', // 标题样式, border属性可去除title底部的分割线
-                contentType: '', // 若传这个属性，属性值为component则表示content传递的是组件，值为render表示是函数式组件，否则是文本
-                content: '这里是测试文本', // 文本或组件地址或函数式组件
+                contentType: contentType, // 若传这个属性，属性值为component则表示content传递的是组件，值为render表示是函数式组件，否则是文本
+                content: content, // 文本或组件地址或函数式组件
                 contentStyle: 'text-align:center;padding:40px 0;', // 内容样式
                 reciveChildSendMSG: (callBack) => {
                     // 这里是子组件传递回来的数据： callBack()
