@@ -1,16 +1,45 @@
 <template>
-    <div class="flex-center home-page-box">
-        <button @click="openPopup('text')">传递文本</button>
-        <button @click="openPopup('render')">传递函数式组件</button>
-        <button @click="openPopup('component')">传递组件</button>
+    <div class="home-page-box">
+        <div class="page-content">
+            <div class="popup-button-box">
+                <button @click="openPopup('text')">传递文本</button>
+                <button @click="openPopup('render')">传递函数式组件</button>
+                <button @click="openPopup('component')">传递组件</button>
+            </div>
+            <div class="pagination-box">
+                <pagination :total="total" :current-page='currentPage' :page-size='pageSize' @pagechange="pagechange"
+                            v-if="myDataTableList && myDataTableList.length > 0">
+                </pagination>
+            </div>
+        </div>
     </div>
 </template>
 <script>
+import pagination from '../common/pagination'
+
 export default {
     data () {
-        return {}
+        return {
+            myDataTableList: [
+                {
+                    name: 'page_1'
+                },
+                {
+                    name: 'page_2'
+                }
+            ],
+            total: 10,
+            currentPage: 1,
+            pageSize: 10
+        }
+    },
+    components: {
+        pagination
     },
     methods: {
+        pagechange () {
+            console.log('page change')
+        },
         openPopup (type) {
             let content = ''
             let contentType = ''
@@ -71,22 +100,42 @@ export default {
                 }]
             })
         }
+    },
+    mounted () {
+        console.log(this.myDataTableList)
     }
 }
 </script>
 <style lang="scss" scoped>
     .home-page-box {
         height: 100vh;
+        position: relative;
 
-        button {
-            cursor: pointer;
-            padding: 5px 10px;
-            background-color: green;
-            outline: none;
-            color: #fff;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            border-radius: 3px;
+        .page-content {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .popup-button-box {
+                text-align: center;
+
+                button {
+                    cursor: pointer;
+                    padding: 5px 10px;
+                    background-color: green;
+                    outline: none;
+                    color: #fff;
+                    -webkit-border-radius: 3px;
+                    -moz-border-radius: 3px;
+                    border-radius: 3px;
+                }
+            }
+
+            .pagination-box {
+                margin-top: 10px;
+            }
         }
     }
 </style>
