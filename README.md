@@ -3,6 +3,8 @@
     <a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="License"></a>
 </p>
 
+> 版本信息 
+
 | Integration | Version |
 | :--- | :--- |
 | vue | 2 |
@@ -12,6 +14,8 @@
 | axios           | ^0.18.0 |
 | socket.io-client | ^2.1.1 |
 | vue-material | ^1.0.0-beta-10.2 |
+
+> 使用配置
 
 ```javascript
 // 打开弹窗
