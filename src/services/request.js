@@ -18,6 +18,7 @@ import axios from 'axios'
  * SON.stringify 序列化结果为："{"name":"demo","age":10}"
  */
 import qs from 'qs'
+import router from "../router";
 
 // 请求拦截器
 axios.interceptors.request.use(function (config) {
@@ -50,8 +51,16 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
     // Do something with response data, such as close loading animation
     switch (response.data.code) {
-        case 1: // 成功
+        case 200: // 成功
             return Promise.resolve(response.data.data)
+            break
+        case 401: // 登陆失效
+            router.push('/login').catch(() => {
+            })
+            break
+        case 500:
+            this.$message('服务错误')
+            return Promise.reject(response.data)
             break
         default:
             return Promise.reject(response.data)
@@ -67,12 +76,16 @@ axios.interceptors.response.use(function (response) {
  * @returns {Promise<any>}
  */
 export const getRequest = async (url, params) => {
-    let urlStr = url + `?${qs.stringify(params)}`
+    let resultParams = ''
+    for (let key in params) {
+        resultParams = resultParams + '&' + key + '=' + params[key]
+    }
+    let urlStr = url + `?${resultParams.substr(1)}`
     let parameters = {
         url: params ? urlStr : url,
         method: 'get'
     }
-
+    axios.defaults.withCredentials = true
     let data = await axios.request(parameters)
     return data
 }
@@ -97,6 +110,7 @@ export const postRequest = async (url, params, isForm) => {
         method: 'post',
         data: finalParams
     }
+    axios.defaults.withCredentials = true
     let data = await axios.request(parameters)
     return data
 }
