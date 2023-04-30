@@ -30,7 +30,7 @@
     "devDependencies": {
         "@vue/cli-plugin-babel": "^3.4.1",
         "@vue/cli-plugin-eslint": "^3.0.0",
-        "@vue/cli-service": "^3.0.0",
+        "@vue/cli-service": "^5.0.8",
         "es6-promise": "^4.2.6",
         "less": "^3.9.0",
         "less-loader": "^5.0.0",
