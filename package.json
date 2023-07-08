@@ -28,13 +28,13 @@
         "vuex": "^3.0.1"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.4.1",
-        "@vue/cli-plugin-eslint": "^3.0.0",
-        "@vue/cli-service": "^3.0.0",
+        "@vue/cli-plugin-babel": "^5.0.8",
+        "@vue/cli-plugin-eslint": "^5.0.8",
+        "@vue/cli-service": "^5.0.8",
         "es6-promise": "^4.2.6",
-        "less": "^3.9.0",
+        "less": "^3.13.1",
         "less-loader": "^5.0.0",
-        "node-sass": "^4.12.0",
+        "node-sass": "^9.0.0",
         "sass-loader": "^7.1.0",
         "style-resources-loader": "^1.2.1",
         "stylus": "^0.54.5",
